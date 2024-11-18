@@ -33,16 +33,11 @@ transfer_path = "/srv/video/transfer/"
 target_path = "/srv/ifs/"
 video_extension = ".flv"
 
-video_list = []
+videos = {}
 file_list = os.listdir(source_path)
 for file_name in file_list:
     if file_name[-4:] == video_extension:
-        video_list.append(file_name)
-print(video_list)
-
-videos = {}
-for video_name in video_list:
-    videos[video_name] = os.path.getmtime(source_path+video_name)
+        videos[video_name] = os.path.getmtime(source_path+video_name)
 print(videos)
 
 """
