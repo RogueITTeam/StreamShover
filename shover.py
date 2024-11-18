@@ -51,12 +51,12 @@ for video, age in videos.items():
         try:
             shutil.move(source_path+video, transfer_path+video)
             break
-        except:
-            print("Something went wrong moving:", video, "from", source_path, "to", transfer_path)
+        except Exception as error_message:
+            print("Something went wrong moving:", video, "from", source_path, "to", transfer_path, "-", error_message)
         try:
             shutil.copy(transfer_path+video, target_path+video)
-        except:
-            print("Something went wrong copying:", video, "from", transfer_path, "to", target_path)
+        except Exception as error_message:
+            print("Something went wrong copying:", video, "from", transfer_path, "to", target_path, "-", error_message)
         
 
 
