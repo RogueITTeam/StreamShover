@@ -34,26 +34,28 @@ transfer_path = "/srv/video/transfer/"
 target_path = "/srv/ifs/"
 video_extension = ".flv"
 
-
+print("Found the following recordings:")
 videos = {}
 file_list = os.listdir(source_path)
 for file_name in file_list:
     if file_name[-4:] == video_extension:
         videos[file_name] = os.path.getmtime(source_path+file_name)
-print(videos)
+        print(file_name)
+print("\n")
 
 for video, age in videos.items():
     print("Checking:", video)
     now = time.time() + 3600
     print(now - age)
     if (age < (now)):
-        print("Copying:", video)
+        print("Moving:", video)
         try:
             shutil.move(source_path+video, transfer_path+video)
         except Exception as error_message:
             print("Something went wrong moving:", video, "from", source_path, "to", transfer_path, "-", error_message)
+            continue
+        print("Copying:", video)
         try:
-            print("shutil copy", transfer_path+video, target_path+video)
             shutil.copy(transfer_path+video, target_path+video)
         except Exception as error_message:
             print("Something went wrong copying:", video, "from", transfer_path, "to", target_path, "-", error_message)
