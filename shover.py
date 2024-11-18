@@ -37,7 +37,7 @@ videos = {}
 file_list = os.listdir(source_path)
 for file_name in file_list:
     if file_name[-4:] == video_extension:
-        videos[video_name] = os.path.getmtime(source_path+video_name)
+        videos[file_name] = os.path.getmtime(source_path+file_name)
 print(videos)
 
 """
