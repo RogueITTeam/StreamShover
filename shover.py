@@ -43,7 +43,9 @@ for file_name in file_list:
 print(videos)
 
 for video, age in videos.items():
-    print(video, age)
+    print("Checking:", video)
+    now = time.time() + 3600
+    print(age-now)
     if (age > (time.time() + 3600)):
         print("Copying:", video)
         try:
