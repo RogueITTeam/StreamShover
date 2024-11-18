@@ -45,8 +45,8 @@ print(videos)
 for video, age in videos.items():
     print("Checking:", video)
     now = time.time() + 3600
-    print(age-now)
-    if (age > (time.time() + 3600)):
+    print(now - age)
+    if (age < (now)):
         print("Copying:", video)
         try:
             shutil.move(source_path+video, transfer_path+video)
