@@ -41,12 +41,11 @@ for file_name in file_list:
     if file_name[-4:] == video_extension:
         videos[file_name] = os.path.getmtime(source_path+file_name)
         print(file_name)
-print("\n")
+print()
 
 for video, age in videos.items():
     print("Checking:", video)
     now = time.time() + 3600
-    print(now - age)
     if (age < (now)):
         print("Moving:", video)
         try:
