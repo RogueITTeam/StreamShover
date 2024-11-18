@@ -25,7 +25,8 @@ time.time() - Now epoch.
 """
 
 import os
-import datetime
+import shutil
+import datetime.time.time as time
 
 
 source_path = "/srv/video/chapel/"
@@ -33,12 +34,29 @@ transfer_path = "/srv/video/transfer/"
 target_path = "/srv/ifs/"
 video_extension = ".flv"
 
+
 videos = {}
 file_list = os.listdir(source_path)
 for file_name in file_list:
     if file_name[-4:] == video_extension:
         videos[file_name] = os.path.getmtime(source_path+file_name)
 print(videos)
+
+for video, age in videos.items():
+    if age > (time() + 3600):
+        try:
+            shutil.move(source_path+video, transfer_path+video)
+            break
+        except:
+            print("Something went wrong moving:", video, "from", source_path, "to", transfer_path)
+        try:
+            shutil.copy(transfer_path+video, target_path+video)
+        except:
+            print("Something went wrong copying:", video, "from", transfer_path, "to", target_path)
+        
+        
+
+
 
 """
 if (video/file.age > 1 hour):
