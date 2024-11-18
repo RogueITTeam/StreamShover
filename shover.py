@@ -3,16 +3,16 @@
 ##
  # StreamShover
  # Copyright (C) 2024 St Edmund's College at the University of Cambridge
- # 
+ #
  # StreamShover is free software: you can redistribute it and/or modify
  # it under the terms of the GNU Affero General Public License as published by
  # the Free Software Foundation, version 3 of the License.
- # 
+ #
  # StreamShover is distributed in the hope that it will be useful,
  # but WITHOUT ANY WARRANTY; without even the implied warranty of
  # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  # GNU General Public License for more details.
- # 
+ #
  # You should have received a copy of the GNU General Public License
  # along with StreamShover.  If not, see <https://www.gnu.org/licenses/>.
 ##
@@ -50,14 +50,14 @@ for video, age in videos.items():
         print("Copying:", video)
         try:
             shutil.move(source_path+video, transfer_path+video)
-            break
         except Exception as error_message:
             print("Something went wrong moving:", video, "from", source_path, "to", transfer_path, "-", error_message)
         try:
+            print("shutil copy", transfer_path+video, target_path+video)
             shutil.copy(transfer_path+video, target_path+video)
         except Exception as error_message:
             print("Something went wrong copying:", video, "from", transfer_path, "to", target_path, "-", error_message)
-        
+
 
 
 
