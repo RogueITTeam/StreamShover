@@ -26,7 +26,7 @@ time.time() - Now epoch.
 
 import os
 import shutil
-import datetime.time.time as time
+import time.time as time
 
 
 source_path = "/srv/video/chapel/"
@@ -54,7 +54,7 @@ for video, age in videos.items():
         except:
             print("Something went wrong copying:", video, "from", transfer_path, "to", target_path)
         
-        
+
 
 
 
