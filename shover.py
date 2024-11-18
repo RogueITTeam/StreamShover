@@ -26,7 +26,7 @@ time.time() - Now epoch.
 
 import os
 import shutil
-import time.time as time
+import time as time
 
 
 source_path = "/srv/video/chapel/"
