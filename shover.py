@@ -28,12 +28,12 @@ import os
 import datetime
 
 
-let source_path = "/srv/video/chapel/"
-let transfer_path = "/srv/video/transfer/"
-let target_path = "/srv/ifs/"
-let video_extension = ".flv"
+source_path = "/srv/video/chapel/"
+transfer_path = "/srv/video/transfer/"
+target_path = "/srv/ifs/"
+video_extension = ".flv"
 
-let video_list = []
+video_list = []
 file_list = os.listdir(source_path)
 for file_name in file_list:
     print(file_name[-4:])
