@@ -36,10 +36,14 @@ video_extension = ".flv"
 video_list = []
 file_list = os.listdir(source_path)
 for file_name in file_list:
-    print(file_name[-4:])
     if file_name[-4:] == video_extension:
         video_list.append(file_name)
 print(video_list)
+
+videos = {}
+for video_name in video_list:
+    videos[video_name] = os.path.getmtime(source_path+video_name)
+print(videos)
 
 """
 if (video/file.age > 1 hour):
