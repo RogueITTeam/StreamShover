@@ -17,11 +17,33 @@
  # along with StreamShover.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+"""
+Things we'll need:
+os.path.getmtime - File epoch
+time.time() - Now epoch.
+3600 - One hour of seconds.
+"""
+
 import os
 import datetime
 
+
+let source_path = "/srv/video/chapel/"
+let transfer_path = "/srv/video/transfer/"
+let target_path = "/srv/ifs/"
+let video_extension = ".flv"
+
+let video_list = []
+file_list = os.listdir(source_path)
+for file_name in file_list:
+    print(file_name[-4:])
+    if file_name[-4:] == video_extension:
+        video_list.append(file_name)
+print(video_list)
+
+"""
 if (video/file.age > 1 hour):
-    os.move video/file video/transfer/file
+    os.move video//chapel/file video/transfer/file
     os.copy video/transfer/file ifs/file
     if (error):
         email Espen
@@ -31,3 +53,4 @@ if (video/file.age > 1 hour):
         email Alex
     else
         email Espen
+"""
