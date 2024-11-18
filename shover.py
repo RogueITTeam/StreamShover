@@ -43,7 +43,9 @@ for file_name in file_list:
 print(videos)
 
 for video, age in videos.items():
-    if age > (time.time() + 3600):
+    print(video, age)
+    if (age > (time.time() + 3600)):
+        print("Copying:", video)
         try:
             shutil.move(source_path+video, transfer_path+video)
             break
